@@ -14,6 +14,7 @@ import com.example.projectmanager.ui.theme.ProjectManagerTheme
 import com.example.projectmanager.ui.theme.navigation.NavGraph
 import com.example.projectmanager.ui.theme.view.SplashCreen
 
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

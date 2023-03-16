@@ -21,9 +21,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.projectmanager.R
+import com.example.projectmanager.ui.theme.component.primaryButton
+import com.example.projectmanager.ui.theme.navigation.MainActions
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(actions: MainActions) {
     Box(
         modifier = Modifier
             .fillMaxSize(),
@@ -81,42 +83,22 @@ fun LoginScreen() {
                 textAlign = TextAlign.Center
             )
 
-            Button(
-                onClick = { /*TODO*/ },
-                modifier = Modifier
+            primaryButton(
+                text = "SIGN IN", modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 20.dp, end = 20.dp, top = 40.dp),
-                colors = ButtonDefaults.buttonColors(Color(0xFF0A80F5)),
-                shape = RoundedCornerShape(10.dp)
-            ) {
-                Text(
-                    text = "SIGN IN",
-                    modifier = Modifier
-                        .padding(top = 5.dp, bottom = 5.dp),
-                    color = Color.White,
-                    fontSize = 18.sp,
-                    textAlign = TextAlign.Center,
-                )
-            }
+                onClick = { }, color = Color(0xFF0A80F5)
+            )
 
-            Button(
-                onClick = { /*TODO*/ },
-                modifier = Modifier
+            primaryButton(
+                text = "SIGN UP", modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 20.dp, end = 20.dp, top = 10.dp),
-                colors = ButtonDefaults.buttonColors(Color.White),
-                shape = RoundedCornerShape(10.dp),
-                border = BorderStroke(2.dp, Color(0xFF0A80F5))
-            ) {
-                Text(
-                    text = "SIGN UP",
-                    modifier = Modifier
-                        .padding(top = 5.dp, bottom = 5.dp),
-                    color = Color(0xFF0C90F1),
-                    fontSize = 18.sp,
-                    textAlign = TextAlign.Center,
-                )
-            }
+                onClick = { actions.gotoSignup() }, color = Color.White,
+                textColor = Color(0xFF0A80F5),
+                hasStroke = true,
+                strokeColor = Color(0xFF0A80F5)
+            )
         }
     }
 }
