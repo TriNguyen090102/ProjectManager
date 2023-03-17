@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "435521698804",
+    "project_id": "projectmanager-fc95a",
+    "storage_bucket": "projectmanager-fc95a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:435521698804:android:934f9756ed80359b1257a1",
+        "android_client_info": {
+          "package_name": "com.example.projectmanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "435521698804-lv7sersf0stfsrsmd7ka1mkfeed2i15i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDt-ikr1xEcMka7H955MGKGt-Za9_rMHWA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "435521698804-lv7sersf0stfsrsmd7ka1mkfeed2i15i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
