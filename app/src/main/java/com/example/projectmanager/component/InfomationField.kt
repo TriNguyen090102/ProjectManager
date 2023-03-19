@@ -1,4 +1,4 @@
-package com.example.projectmanager.ui.theme.component
+package com.example.projectmanager.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -10,11 +10,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun InformationField(label: String, keyboardType: KeyboardType,visualTransformation:VisualTransformation = VisualTransformation.None) {
+fun InformationField(
+    label: String, keyboardType: KeyboardType,
+    visualTransformation: VisualTransformation = VisualTransformation.None,
+    onValueChange: (String) -> Unit
+) {
     var text by remember { mutableStateOf("") }
     OutlinedTextField(
         value = text,
@@ -22,8 +25,9 @@ fun InformationField(label: String, keyboardType: KeyboardType,visualTransformat
             .padding(top = 5.dp, start = 5.dp, end = 5.dp)
             .fillMaxWidth()
             .background(Color.White),
-        onValueChange = { text = it },
-        visualTransformation = visualTransformation ,
+        onValueChange = { text = it
+                        onValueChange(it)},
+        visualTransformation = visualTransformation,
         label = { Text("$label") },
         keyboardOptions = KeyboardOptions.Default.copy(keyboardType = keyboardType),
         colors = TextFieldDefaults.outlinedTextFieldColors(

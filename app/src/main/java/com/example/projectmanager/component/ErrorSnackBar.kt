@@ -1,6 +1,7 @@
 package com.example.projectmanager.component
 
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.SnackbarDuration
 import androidx.compose.material.rememberScaffoldState
@@ -20,5 +21,6 @@ fun ShowErrorSnackBar(msg: String,scaffoldState: ScaffoldState,coroutineScope: C
             actionLabel = "Get it",
             duration = SnackbarDuration.Long
         )
+        Log.d("msg","error showed")
     }
 }

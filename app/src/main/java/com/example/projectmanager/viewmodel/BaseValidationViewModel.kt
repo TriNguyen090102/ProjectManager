@@ -54,15 +54,13 @@ class BaseValidationViewModel(
     }
 
     fun submitData() {
-        val nameResult: ValidationResult = validateName.execute(state.name)
-        val emailResult: ValidationResult = validateEmail.execute(state.email)
-        val passwordResult: ValidationResult = validatePassword.execute(state.password)
-        val repeatedPasswordResult: ValidationResult =
-            validateConFirmPassword.execute(state.password, state.repeatedPassword)
+
 
 
         //sign in validation
         if (type == "sign_in") {
+            val emailResult: ValidationResult = validateEmail.execute(state.email)
+            val passwordResult: ValidationResult = validatePassword.execute(state.password)
             val hasError = listOf(
                 emailResult,
                 passwordResult,
@@ -85,6 +83,11 @@ class BaseValidationViewModel(
 
         //sign up validation
         if (type == "sign_up") {
+            val nameResult: ValidationResult = validateName.execute(state.name)
+            val emailResult: ValidationResult = validateEmail.execute(state.email)
+            val passwordResult: ValidationResult = validatePassword.execute(state.password)
+            val repeatedPasswordResult: ValidationResult =
+                validateConFirmPassword.execute(state.password, state.repeatedPassword)
             val hasError = listOf(
                 nameResult,
                 emailResult,

@@ -1,4 +1,4 @@
-package com.example.projectmanager.ui.theme.view
+package com.example.projectmanager.view
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -10,16 +10,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 import com.example.projectmanager.R
-import com.example.projectmanager.ui.theme.navigation.MainActions
-import com.example.projectmanager.ui.theme.navigation.Screen
+import com.example.projectmanager.navigation.MainActions
+import com.example.projectmanager.repository.AuthRepository
 import com.example.projectmanager.ui.theme.typography
 import kotlinx.coroutines.delay
 
@@ -28,7 +25,13 @@ import kotlinx.coroutines.delay
 fun SplashCreen(actions: MainActions) {
     LaunchedEffect(key1 = true){
         delay(3000)
-        actions.gotoLogin()
+        val currentUser = AuthRepository().getCurrentUserId()
+        if(!currentUser.isNullOrEmpty()){
+            actions.gotoUser()
+        }else{
+            actions.gotoLogin()
+        }
+
     }
     Box(
         modifier = Modifier
