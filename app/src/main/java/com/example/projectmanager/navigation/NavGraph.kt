@@ -10,6 +10,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.projectmanager.view.*
 import com.example.projectmanager.viewmodel.BaseValidationViewModel
+import com.example.projectmanager.viewmodel.UserViewModel
 
 @Composable
 fun NavGraph() {
@@ -20,7 +21,8 @@ fun NavGraph() {
     NavHost(navController = navController, startDestination = Screen.SplashScreen.route) {
         composable(Screen.SplashScreen.route) {
             val viewModel = hiltViewModel<BaseValidationViewModel>(it)
-            SplashCreen(actions = actions)
+            val userViewModel = hiltViewModel<UserViewModel>(it)
+            SplashCreen(actions = actions, userViewModel)
         }
         composable(Screen.LogInScreen.route) {
             LoginScreen(actions = actions)

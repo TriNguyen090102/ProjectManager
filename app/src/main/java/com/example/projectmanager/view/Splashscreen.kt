@@ -18,11 +18,12 @@ import com.example.projectmanager.R
 import com.example.projectmanager.navigation.MainActions
 import com.example.projectmanager.repository.AuthRepository
 import com.example.projectmanager.ui.theme.typography
+import com.example.projectmanager.viewmodel.UserViewModel
 import kotlinx.coroutines.delay
 
 
 @Composable
-fun SplashCreen(actions: MainActions) {
+fun SplashCreen(actions: MainActions, userViewModel: UserViewModel) {
     LaunchedEffect(key1 = true){
         delay(3000)
         val currentUser = AuthRepository().getCurrentUserId()
