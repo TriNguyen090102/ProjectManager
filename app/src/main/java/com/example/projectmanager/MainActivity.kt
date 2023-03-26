@@ -4,7 +4,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.projectmanager.navigation.NavGraph
+
+import com.example.projectmanager.viewmodel.UserViewModel
 import com.google.firebase.FirebaseApp
 import dagger.hilt.EntryPoint
 import dagger.hilt.android.AndroidEntryPoint
@@ -16,7 +19,8 @@ class MainActivity : ComponentActivity() {
 
         super.onCreate(savedInstanceState)
         setContent {
-            NavGraph()
+            val userViewModel: UserViewModel = hiltViewModel()
+            NavGraph(userViewModel)
         }
     }
 }

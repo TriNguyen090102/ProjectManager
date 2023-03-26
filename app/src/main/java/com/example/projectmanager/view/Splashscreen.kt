@@ -1,5 +1,7 @@
 package com.example.projectmanager.view
 
+import android.annotation.SuppressLint
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
@@ -18,22 +20,27 @@ import com.example.projectmanager.R
 import com.example.projectmanager.navigation.MainActions
 import com.example.projectmanager.repository.AuthRepository
 import com.example.projectmanager.ui.theme.typography
+import com.example.projectmanager.utils.Validation.state.UserState
 import com.example.projectmanager.viewmodel.UserViewModel
+import com.google.protobuf.Empty
 import kotlinx.coroutines.delay
 
 
+@SuppressLint("StateFlowValueCalledInComposition")
 @Composable
 fun SplashCreen(actions: MainActions, userViewModel: UserViewModel) {
-    LaunchedEffect(key1 = true){
+    val curUserId = userViewModel.getCurUserId()
+    LaunchedEffect(key1 = true) {
         delay(3000)
-        val currentUser = AuthRepository().getCurrentUserId()
-        if(!currentUser.isNullOrEmpty()){
+        if (!curUserId.isNullOrEmpty()) {
             actions.gotoUser()
-        }else{
+        } else {
             actions.gotoLogin()
         }
-
     }
+
+
+
     Box(
         modifier = Modifier
             .fillMaxSize(),

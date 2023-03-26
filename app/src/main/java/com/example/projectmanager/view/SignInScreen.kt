@@ -41,7 +41,7 @@ fun SignInScreen(actions: MainActions, viewModel: BaseValidationViewModel) {
     val state = viewModel.state
     val context = LocalContext.current
     val repository: AuthRepository = AuthRepository()
-    Scaffold(scaffoldState = scaffoldState,topBar = { TopBar(title = "SIGN IN", action = actions) }) {
+    Scaffold(scaffoldState = scaffoldState,topBar = { TopBar(title = "SIGN IN", onClick = { actions.upPress() }) }) {
         Box(
             modifier = Modifier
                 .fillMaxSize(),
@@ -106,8 +106,8 @@ fun SignInScreen(actions: MainActions, viewModel: BaseValidationViewModel) {
                                     Log.d("error", "${state.passwordError}")
                                     showSignInError(viewModel, scaffoldState, coroutineScope)
                                 } else {
+                                    Log.d("sign in clicked","")
                                     signIn(viewModel = viewModel, context = context,repository)
-
                                 }
                             })
                     }

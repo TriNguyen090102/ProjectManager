@@ -44,7 +44,7 @@ fun SignUpScreen(actions: MainActions, viewModel: BaseValidationViewModel) {
     viewModel.type = "sign_up"
     Scaffold(
         scaffoldState = scaffoldState,
-        topBar = { TopBar(title = "SIGN UP", action = actions) }) {
+        topBar = { TopBar(title = "SIGN UP", onClick = { actions.upPress() }) }) {
         Box(
             modifier = Modifier
                 .fillMaxSize(),

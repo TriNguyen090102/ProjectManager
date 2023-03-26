@@ -54,9 +54,6 @@ class BaseValidationViewModel(
     }
 
     fun submitData() {
-
-
-
         //sign in validation
         if (type == "sign_in") {
             val emailResult: ValidationResult = validateEmail.execute(state.email)
@@ -78,9 +75,7 @@ class BaseValidationViewModel(
             viewModelScope.launch {
                 resultEventChannel.send(EventResult.Success)
             }
-
         }
-
         //sign up validation
         if (type == "sign_up") {
             val nameResult: ValidationResult = validateName.execute(state.name)
@@ -110,8 +105,6 @@ class BaseValidationViewModel(
             viewModelScope.launch {
                 resultEventChannel.send(EventResult.Success)
             }
-
-
         }
     }
 

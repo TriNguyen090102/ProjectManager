@@ -16,17 +16,20 @@ import androidx.compose.ui.unit.dp
 fun InformationField(
     label: String, keyboardType: KeyboardType,
     visualTransformation: VisualTransformation = VisualTransformation.None,
-    onValueChange: (String) -> Unit
+    onValueChange: (String) -> Unit,
+    rememberTextValue: String = ""
 ) {
-    var text by remember { mutableStateOf("") }
+    var text by remember { mutableStateOf(rememberTextValue) }
     OutlinedTextField(
         value = text,
         modifier = Modifier
             .padding(top = 5.dp, start = 5.dp, end = 5.dp)
             .fillMaxWidth()
             .background(Color.White),
-        onValueChange = { text = it
-                        onValueChange(it)},
+        onValueChange = {
+            text = it
+            onValueChange(it)
+        },
         visualTransformation = visualTransformation,
         label = { Text("$label") },
         keyboardOptions = KeyboardOptions.Default.copy(keyboardType = keyboardType),

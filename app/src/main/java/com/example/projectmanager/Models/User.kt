@@ -2,13 +2,13 @@ package com.example.projectmanager.Models
 
 import kotlinx.serialization.Serializable
 
-
+@Serializable
 data class User(
-    val id: String = "",
-    val email: String = "",
+    @Transient val id: String = "",
+    @Transient val email: String = "",
 
-    val name: String = "",
-    val image: String = "",
-    val mobile: Long = 0,
-    val fcmToken: String = ""
+    @Transient val name: String = "",
+    @Transient val image: String = "",
+    @Transient val mobile: Long = 0,
+    @Transient val fcmToken: String = ""
 )
